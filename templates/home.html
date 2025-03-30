@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Portfolio - Home{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('home') }}">Snehaa Thankkam</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="main-nav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <main>
+        {% block content %}
+        <header class="text-center bg-secondary text-white p-5">
+            <h1>Snehaa Thankkam</h1>
+            <p class="lead">Aspiring Data Analyst and Economist</p>
+        </header>
+        
+        <section id="about" class="container my-5">
+            <h2>About Me</h2>
+            <p>I am an economics enthusiast with a strong foundation in data analysis, behavioral finance, and business strategy. Currently pursuing my MA in Economics at Ashoka University, I bring a blend of analytical thinking and technical expertise in SQL, Python, R, Tableau, and MATLAB.</p>
+        </section>
+        
+        <section id="projects" class="container my-5">
+            <h2>Projects</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Relationship between GDP and Savings</h5>
+                            <p class="card-text">Used linear regression analysis to study the relationship between GDP and Gross Domestic Savings.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Effect of Exchange Rate Volatility</h5>
+                            <p class="card-text">Analyzed 2 months of USD-INR exchange rate data to examine its effect on economic growth.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="container my-5">
+            <h2>Contact Me</h2>
+            <form action="{{ url_for('contact') }}" method="POST" class="mb-3">
+                <div class="mb-3">
+                    <input type="text" name="name" class="form-control" placeholder="Your Name">
+                </div>
+                <div class="mb-3">
+                    <input type="email" name="email" class="form-control" placeholder="Your Email">
+                </div>
+                <div class="mb-3">
+                    <textarea name="message" class="form-control" placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+            <p>Email: <a href="mailto:sneha.raju_ma2024@ashoka.edu.in">sneha.raju_ma2024@ashoka.edu.in</a></p>
+        </section>
+        
+    </main>
+    
+    <footer class="bg-dark text-white text-center p-3">
+        <p>© 2025 Snehaa Thankkam &bull; <a href="{{ url_for('static', filename='resume.pdf') }}" class="text-white">Download Resume</a></p>
+        <p>
+            <a href="https://github.com/yourusername" class="text-white me-2">GitHub</a>
+            <a href="https://linkedin.com/in/yourusername" class="text-white">LinkedIn</a>
+        </p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
